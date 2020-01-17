@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "More About Me"
+date:   2020-01-16 15:54:35 -0500
+categories: life
+img: me.jpg
+---
+
+Eight years of software development experience, five years of management experience, and two years of entrepreneurial experience.
+
+Familiar with Android, Jenkins, Git, Linux, understand Framework, various open-lib, python, HTML, js, unity, mixed compilation, Decompile, Kotlin.
+
+Proficient in software development to release process, good at optimizing work process, integrating team resources, and improving overall efficiency.
+
+Passionate about trying new things and having a strong self-drive.
+
+Admire data-driven, strong data sensitivity, familiar with DAU, DNU, ROI, Retention and other indicators.
