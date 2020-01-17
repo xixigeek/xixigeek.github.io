@@ -7,51 +7,51 @@
   <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
 
     <meta content="Frank Blog" property="og:site_name">
-
+  
     <meta content="LeetCode Day1" property="og:title">
-
-
+  
+  
     <meta content="article" property="og:type">
-
-
+  
+  
     <meta content="Now I'm trying to find a job in the USA, although I have already worked for many years my friends suggest to me that I should do some LeetCode.So Let's do it!" property="og:description">
-
-
-    <meta content="http://localhost:4000/the-best-organizer-software/" property="og:url">
-
-
+  
+  
+    <meta content="http://localhost:4000/leetcode-day1/" property="og:url">
+  
+  
     <meta content="2020-01-17T13:58:35-05:00" property="article:published_time">
     <meta content="http://localhost:4000/about/" property="article:author">
-
-
+  
+  
     <meta content="http://localhost:4000/assets/img/frank.png" property="og:image">
-
-
-
-
-
-
+  
+  
+    
+  
+  
+    
     <meta content="LeetCode" property="article:tag">
-
+    
     <meta content="Software" property="article:tag">
-
-
+    
+  
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@">
     <meta name="twitter:creator" content="@">
-
+  
     <meta name="twitter:title" content="LeetCode Day1">
-
-
-    <meta name="twitter:url" content="http://localhost:4000/the-best-organizer-software/">
-
-
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/leetcode-day1/">
+  
+  
     <meta name="twitter:description" content="Now I'm trying to find a job in the USA, although I have already worked for many years my friends suggest to me that I should do some LeetCode.So Let's do it!">
-
-
+  
+  
     <meta name="twitter:image:src" content="http://localhost:4000/assets/img/frank.png">
-
+  
 
 	<meta name="description" content="Now I'm trying to find a job in the USA, although I have already worked for many years my friends suggest to me that I should do some LeetCode.So Let's do it!">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -93,21 +93,21 @@
     <section class="contact">
       <h3 class="contact-title">Contact me</h3>
       <ul>
-        <!--
+        <!-- 
           <li><a href="https://twitter.com/artemsheludko_" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
          -->
-        <!--
+        <!-- 
           <li><a href="https://facebook.com/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
          -->
-
+        
           <li class="github"><a href="http://github.com/xixigeek" target="_blank"><i class="fa fa-github"></i></a></li>
-
-
+        
+        
           <li class="linkedin"><a href="https://in.linkedin.com/in/yinbai" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-
-
+        
+        
           <li class="email"><a href="mailto:byszy2008@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
-
+        
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
@@ -118,8 +118,8 @@
 <div class="content-box clearfix">
   <article class="article-page">
   <div class="page-content">
-
-
+    
+    
     <div class="wrap-content">
       <header class="header-page">
         <h1 class="page-title">LeetCode Day1</h1>
@@ -204,24 +204,58 @@
         <span class="k">return</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">longNum</span><span class="o">);</span>
   <span class="o">}</span></code></pre></figure>
 
+<h3 id="leetcode-13">LeetCode 13</h3>
+<p>https://leetcode.com/problems/roman-to-integer/</p>
+
+<p>The simplest solution is just listing all the roman number in a HashMap.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">romanToInt</span><span class="o">(</span><span class="nc">String</span> <span class="n">s</span><span class="o">)</span> <span class="o">{</span>
+       <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">&lt;&gt;();</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"I"</span><span class="o">,</span> <span class="mi">1</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"IV"</span><span class="o">,</span> <span class="mi">4</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"V"</span><span class="o">,</span> <span class="mi">5</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"IX"</span><span class="o">,</span> <span class="mi">9</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"X"</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"XL"</span><span class="o">,</span> <span class="mi">40</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"L"</span><span class="o">,</span> <span class="mi">50</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"XC"</span><span class="o">,</span> <span class="mi">90</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"C"</span><span class="o">,</span> <span class="mi">100</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"CD"</span><span class="o">,</span> <span class="mi">400</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"D"</span><span class="o">,</span> <span class="mi">500</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"CM"</span><span class="o">,</span> <span class="mi">900</span><span class="o">);</span>
+       <span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"M"</span><span class="o">,</span> <span class="mi">1000</span><span class="o">);</span>
+
+       <span class="kt">int</span> <span class="n">result</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+       <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">();</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+           <span class="k">if</span> <span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">s</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&amp;&amp;</span> <span class="n">map</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">)))</span> <span class="o">{</span>
+               <span class="n">result</span> <span class="o">+=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="o">));</span>
+               <span class="n">i</span><span class="o">++;</span>
+           <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+               <span class="n">result</span> <span class="o">+=</span> <span class="n">map</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">s</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">i</span><span class="o">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">));</span>
+           <span class="o">}</span>
+       <span class="o">}</span>
+       <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+<span class="o">}</span>
+   </code></pre></figure>
+
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=LeetCode Day1&url=http://localhost:4000/the-best-organizer-software/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
-          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/the-best-organizer-software/" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
-          <a href="https://plus.google.com/share?url=http://localhost:4000/the-best-organizer-software/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+          <a href="https://twitter.com/intent/tweet?text=LeetCode Day1&url=http://localhost:4000/leetcode-day1/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://facebook.com/sharer.php?u=http://localhost:4000/leetcode-day1/" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/leetcode-day1/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
         <div class="page-tag">
-
+          
             <a href="/tags#LeetCode" class="tag">&#35; LeetCode</a>
-
+          
             <a href="/tags#Software" class="tag">&#35; Software</a>
-
+          
         </div>
       </div>
       <section class="comment-area">
   <div class="comment-wrapper">
-
+    
     <div id="disqus_thread" class="article-comments"></div>
     <script>
       (function() {
@@ -232,7 +266,7 @@
       })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
+    
   </div>
 </section> <!-- End Comment Area -->
 
@@ -243,7 +277,7 @@
 </div>
 
   </div>
-
+  
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

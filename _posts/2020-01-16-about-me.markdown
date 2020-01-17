@@ -3,6 +3,7 @@ layout: post
 title:  "More About Me"
 date:   2020-01-16 15:54:35 -0500
 categories: life
+description: Love Coding! Love Life!
 img: me.jpg
 ---
 
@@ -15,3 +16,6 @@ Proficient in software development to release process, good at optimizing work p
 Passionate about trying new things and having a strong self-drive.
 
 Admire data-driven, strong data sensitivity, familiar with DAU, DNU, ROI, Retention and other indicators.
+
+It's my first time to write a blog with English and this is my Chinese Blog
+https://blog.csdn.net/byszy
