@@ -2,13 +2,13 @@
 layout: post
 title: LeetCode Day1
 date: 2020-01-17 13:58:35 -0500
-description: Now I'm trying to find a job in the USA, although I have already worked for many years my friends suggest to me that I should do some LeetCode.So Let's do it! # Add post description (optional)
+description: Now I'm trying to find a job in the USA, although I have already worked for many years my friends suggest to me that I should do some LeetCode.So Let's do it! LeetCode 1,7,13 # Add post description (optional)
 tags: [LeetCode, Software] # add tag
 ---
 
 Now I'm trying to find a job in the USA, although I have already worked for many years my friends suggest to me that I should do some LeetCode.So Let's do it!
 
-### LeetCode 1
+### LeetCode 1 Two Sum    
 
 https://leetcode.com/problems/two-sum/
 
@@ -47,7 +47,7 @@ class Solution {
 }
 {% endhighlight  %}
 
-### LeetCode 7
+### LeetCode 7 Reverse Integer    
 https://leetcode.com/problems/reverse-integer/
 {% highlight java %}
 public int reverse(int x) {
@@ -91,7 +91,7 @@ Another Solution is using the string reverse:
   }
 {% endhighlight  %}
 
-### LeetCode 13
+### LeetCode 13 Roman to Integer
 https://leetcode.com/problems/roman-to-integer/
 
 The simplest solution is just listing all the roman number in a HashMap.
