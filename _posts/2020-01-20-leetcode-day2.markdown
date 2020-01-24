@@ -2,11 +2,9 @@
 layout: post
 title: LeetCode Day2
 date: 2020-01-20 13:58:35 -0500
-description: LeetCode 14，20 # Add post description (optional)
+description: LeetCode 14,20 # Add post description (optional)
 tags: [LeetCode, Software] # add tag
 ---
-
-Now I'm trying to find a job in the USA, although I have already worked for many years my friends suggest to me that I should do some LeetCode.So Let's do it!
 
 ### LeetCode 14 Longest Common Prefix
 
