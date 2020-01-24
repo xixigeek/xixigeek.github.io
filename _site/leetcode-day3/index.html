@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>LeetCode Day2 - Frank Blog</title>
+	<title>LeetCode Day3 - Frank Blog</title>
 
   <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
 
     <meta content="Frank Blog" property="og:site_name">
   
-    <meta content="LeetCode Day2" property="og:title">
+    <meta content="LeetCode Day3" property="og:title">
   
   
     <meta content="article" property="og:type">
   
   
-    <meta content="LeetCode 21,82,83" property="og:description">
+    <meta content="LeetCode 21,28" property="og:description">
   
   
     <meta content="http://localhost:4000/leetcode-day3/" property="og:url">
@@ -41,19 +41,19 @@
     <meta name="twitter:site" content="@">
     <meta name="twitter:creator" content="@">
   
-    <meta name="twitter:title" content="LeetCode Day2">
+    <meta name="twitter:title" content="LeetCode Day3">
   
   
     <meta name="twitter:url" content="http://localhost:4000/leetcode-day3/">
   
   
-    <meta name="twitter:description" content="LeetCode 21,82,83">
+    <meta name="twitter:description" content="LeetCode 21,28">
   
   
     <meta name="twitter:image:src" content="http://localhost:4000/assets/img/frank.png">
   
 
-	<meta name="description" content="LeetCode 21,82,83">
+	<meta name="description" content="LeetCode 21,28">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<meta property="og:image" content="">
@@ -122,12 +122,18 @@
     
     <div class="wrap-content">
       <header class="header-page">
-        <h1 class="page-title">LeetCode Day2</h1>
+        <h1 class="page-title">LeetCode Day3</h1>
         <div class="page-date"><span>2020, Jan 23&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
       </header>
       <h3 id="leetcode-21-merge-two-sorted-lists">LeetCode 21 Merge Two Sorted Lists</h3>
 
 <p>https://leetcode.com/problems/merge-two-sorted-lists</p>
+
+<p>When we talk about the linked list we should think in recursion first.
+So we have three things about recursion:
+First is when we stop recursion, in this term when the l1 or l2 is null, it is done.
+Second is return value in every recursion, we returned the sorted linked list every time.
+Last is the procession in every recursion, we compare the l1.val and l2.vale, if l1.val smaller we put the next recursion’s result behind the l1.next. Otherwise, we put that behind the l2.next.</p>
 
 <figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="nc">ListNode</span> <span class="nf">mergeTwoLists</span><span class="o">(</span><span class="nc">ListNode</span> <span class="n">l1</span><span class="o">,</span> <span class="nc">ListNode</span> <span class="n">l2</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">l1</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
@@ -146,10 +152,55 @@
     <span class="o">}</span>
 <span class="o">}</span></code></pre></figure>
 
+<h3 id="leetcode-26-remove-duplicates-from-sorted-array">LeetCode 26 Remove Duplicates from Sorted Array</h3>
+
+<p>https://leetcode.com/problems/remove-duplicates-from-sorted-array/</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">removeDuplicates</span><span class="o">(</span><span class="kt">int</span><span class="o">[]</span> <span class="n">nums</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">.</span><span class="na">length</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="kt">int</span> <span class="n">targetIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">targetIndex</span><span class="o">]</span> <span class="o">!=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">])</span> <span class="o">{</span>
+            <span class="n">targetIndex</span><span class="o">++;</span>
+            <span class="n">nums</span><span class="o">[</span><span class="n">targetIndex</span><span class="o">]</span> <span class="o">=</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">targetIndex</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
+<h3 id="leetcode-28-implement-strstr">LeetCode 28 Implement strStr()</h3>
+<p>https://leetcode.com/problems/implement-strstr/</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">strStr</span><span class="o">(</span><span class="nc">String</span> <span class="n">haystack</span><span class="o">,</span> <span class="nc">String</span> <span class="n">needle</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">haystack</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="n">needle</span><span class="o">);</span>
+<span class="o">}</span></code></pre></figure>
+
+<p>Yeah, it’s just a joke, we should use two pointers here.</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="kd">public</span> <span class="kt">int</span> <span class="nf">strStr</span><span class="o">(</span><span class="nc">String</span> <span class="n">haystack</span><span class="o">,</span> <span class="nc">String</span> <span class="n">needle</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">targetIndex</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="kt">char</span><span class="o">[]</span> <span class="n">haystackChars</span> <span class="o">=</span> <span class="n">haystack</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+    <span class="kt">char</span><span class="o">[]</span> <span class="n">needleChars</span> <span class="o">=</span> <span class="n">needle</span><span class="o">.</span><span class="na">toCharArray</span><span class="o">();</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">haystackChars</span><span class="o">.</span><span class="na">length</span> <span class="o">-</span> <span class="n">needleChars</span><span class="o">.</span><span class="na">length</span> <span class="o">+</span> <span class="mi">1</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+        <span class="k">for</span> <span class="o">(;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">needleChars</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">j</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">haystackChars</span><span class="o">[</span><span class="n">i</span> <span class="o">+</span> <span class="n">j</span><span class="o">]</span> <span class="o">!=</span> <span class="n">needleChars</span><span class="o">[</span><span class="n">j</span><span class="o">])</span> <span class="o">{</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">j</span> <span class="o">==</span> <span class="n">needleChars</span><span class="o">.</span><span class="na">length</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">return</span> <span class="n">i</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+<span class="o">}</span></code></pre></figure>
+
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=LeetCode Day2&url=http://localhost:4000/leetcode-day3/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text=LeetCode Day3&url=http://localhost:4000/leetcode-day3/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
           <a href="https://facebook.com/sharer.php?u=http://localhost:4000/leetcode-day3/" title="Share on Facebook" rel="nofollow" target="_blank">Facebook</a>
           <a href="https://plus.google.com/share?url=http://localhost:4000/leetcode-day3/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
         </div>
