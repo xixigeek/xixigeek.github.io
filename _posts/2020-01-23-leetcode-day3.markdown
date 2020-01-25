@@ -2,7 +2,7 @@
 layout: post
 title: LeetCode Day3
 date: 2020-01-23 16:00:00 -0500
-description: LeetCode 21,28 # Add post description (optional)
+description: LeetCode 21,26,28 # Add post description (optional)
 tags: [LeetCode, Software] # add tag
 ---
 
