@@ -1,85 +1,100 @@
 ---
 layout: post
 title: LeetCode Day3
-date: 2020-01-23 16:00:00 -0500
-description: LeetCode 21,26,28 # Add post description (optional)
+date: 2020-01-30 14:07:00 -0500
+description: LeetCode 38,53 # Add post description (optional)
 tags: [LeetCode, Software] # add tag
 ---
 
-### LeetCode 21 Merge Two Sorted Lists
+### LeetCode 38 Count and Say
 
-https://leetcode.com/problems/merge-two-sorted-lists
+https://leetcode.com/problems/count-and-say/
 
-When we talk about the linked list we should think in recursion first.
-So we have three things about recursion:
-First is when we stop recursion, in this term when the l1 or l2 is null, it is done.
-Second is return value in every recursion, we returned the sorted linked list every time.
-Last is the procession in every recursion, we compare the l1.val and l2.vale, if l1.val smaller we put the next recursion's result behind the l1.next. Otherwise, we put that behind the l2.next.
+Firstly, I have to say the question is hard to understand.We can just use the hashmap to solve it, but I use two index while.
 {% highlight java %}
-public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-    if (l1 == null) {
-        return l2;
-    }
-    if (l2 == null) {
-        return l1;
-    }
-
-    if (l2.val > l1.val) {
-        l1.next = mergeTwoLists(l1.next, l2);
-        return l1;
-    } else {
-        l2.next = mergeTwoLists(l1, l2.next);
-        return l2;
-    }
+public String countAndSay(int n) {
+     String result = "11";
+     if (n == 1) {
+         return "1";
+     } else if (n == 2) {
+         return result;
+     }
+     while (n > 2) {
+         n--;
+         //转换为char数组处理字符
+         char[] array = result.toCharArray();
+         result = "";
+         int j = 0;
+         for (int i = 1; i < array.length; i++) {
+             //双指针判断慢指针和快指针元素不同时，计数并”读出来“
+             if (array[i] != array[j]) {
+                 result += (i - j) + "" + array[i - 1];
+                 j = i;
+             }
+             //对于末尾的元素特特殊处理
+             if (i == array.length - 1 && array[i] == array[j]) {
+                 result += (i - j + 1) + "" + array[i];
+             }
+         }
+     }
+     return result;
 }
 {% endhighlight  %}
 
-### LeetCode 26 Remove Duplicates from Sorted Array
-
-https://leetcode.com/problems/remove-duplicates-from-sorted-array/
-
+I try another methor by using recursion.
 {% highlight java %}
-public int removeDuplicates(int[] nums) {
-    if (nums.length == 0) {
-        return 0;
+public static String countAndSay(int n) {
+    if (n == 1) {
+        return "1";
     }
-    int targetIndex = 0;
+    String newString = countAndSay(n - 1);
+    StringBuilder builder = new StringBuilder();
+    char pre = newString.charAt(0);
+    int count = 0;
+    for (int i = 0; i < newString.length(); i++) {
+        if (newString.charAt(i) == pre) {
+            count++;
+        } else {
+            builder.append(count).append(pre);
+            pre = newString.charAt(i);
+            count = 1;
+        }
+
+        if (i == newString.length() - 1) {
+            builder.append(count).append(pre);
+        }
+    }
+    return builder.toString();
+}
+{% endhighlight  %}
+
+### LeetCode 53 Maximum Subarray
+
+https://leetcode.com/problems/maximum-subarray/
+
+We hava lots of solutions:
+{% highlight java %}
+public int maxSubArray(int[] nums) {
+    int maxSum = nums[0], currentSum = nums[0];
+
     for (int i = 1; i < nums.length; i++) {
-        if (nums[targetIndex] != nums[i]) {
-            targetIndex++;
-            nums[targetIndex] = nums[i];
-        }
+        currentSum = Math.max(nums[i], currentSum + nums[i]);
+        maxSum = Math.max(maxSum, currentSum);
     }
-    return targetIndex + 1;
+    return maxSum;
 }
 {% endhighlight  %}
 
-### LeetCode 28 Implement strStr()
-https://leetcode.com/problems/implement-strstr/
-
 {% highlight java %}
-public int strStr(String haystack, String needle) {
-    return haystack.indexOf(needle);
-}
-{% endhighlight  %}
+private static int maxSub(int[] origin) {
+    int maxSum = origin[0];
 
-Yeah, it's just a joke, we should use two pointers here.
-{% highlight java %}
-public int strStr(String haystack, String needle) {
-    int targetIndex = 0;
-    char[] haystackChars = haystack.toCharArray();
-    char[] needleChars = needle.toCharArray();
-    for (int i = 0; i < haystackChars.length - needleChars.length + 1; i++) {
-        int j = 0;
-        for (; j < needleChars.length; j++) {
-            if (haystackChars[i + j] != needleChars[j]) {
-                break;
-            }
+    for (int i = 1; i < origin.length; i++) {
+        if (origin[i - 1] > 0) {
+            origin[i] += origin[i - 1];
         }
-        if (j == needleChars.length) {
-            return i;
-        }
+        maxSum = Math.max(maxSum, origin[i]);
     }
-    return -1;
+    return maxSum;
 }
 {% endhighlight  %}
